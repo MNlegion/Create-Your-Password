@@ -37,10 +37,11 @@ function generatePassword() {
     }
 }
 
-var generatePassword = function () {
-    window.alert("Welcome to password generator!");
-}
-        
+    // Thought process on concat conditions above: 
+        // 1. Determine total password length from user input prompt. 
+        // 2. If uppercase is true, concat array upperCase + character total specified and move to next question asking for lower case. Continue through to concat needed info and unneeded info. 
+            // 2a. If uppercase is false, no concat takes place as the array values are unneeded for user password
+        // 3. Determine which arrarys through user input are required in order to determine what values should be used within generation of password and how many total random characters.
 
 
 
