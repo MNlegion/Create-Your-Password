@@ -9,10 +9,15 @@ specialCharacter = ["+", "-", "&&", "||", "!", "(", ")", "{", "}", "[", "]", "^"
 
 function generatePassword() {
     var passwordLength = window.prompt("Passwords can contain between 8 and 128 characters. Please determine the length of your password.");
+        console.log(passwordLength);
     var upperConfirm = window.confirm("Do you want uppercase characters in your password?");
+        console.log(upperConfirm);
     var lowerConfirm = window.confirm("Do you want lowercase characters in your password?");
+        console.log(lowerConfirm);
     var numericConfirm = window.confirm("Do you want your password to contain numbers?");
+        console.log(numericConfirm);
     var specialConfirm = window.confirm("Do you want your password to contain special characters?");
+        console.log(specialConfirm);
     
 
     if(upperConfirm) {
@@ -30,6 +35,10 @@ function generatePassword() {
     if(specialConfirm) {
         choices = choices.concat(specialCharacter);
     }
+}
+
+var generatePassword = function () {
+    window.alert("Welcome to password generator!");
 }
         
 
