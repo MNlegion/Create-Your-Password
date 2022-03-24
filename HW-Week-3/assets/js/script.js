@@ -8,14 +8,14 @@ specialCharacter = ["+", "-", "&&", "||", "!", "(", ")", "{", "}", "[", "]", "^"
 // Will I run into issues with this being a string and the " and \ symbols? I tried to call them out correctly using the slash before inputting the symbol itself?
 
 function generatePassword() {
+    var totalChoices = []
     var choices = []
-    var passwordLength = window.prompt("Passwords may contain between 8 and 128 characters. Please determine the length of your password.");
-        if(parseInt(passwordLength) > 128 || parseInt(passwordLength) < 8 || passwordLength === "" || passwordLength === null) {
+    var charLimit = window.prompt("Passwords may contain between 8 and 128 characters. Please determine the length of your password.");
+        if(parseInt(charLimit) > 128 || parseInt(charLimit) < 8 || charLimit === "" || charLimit === null) {
         window.alert("Password must contain a minimum of 8 characters and a maximum of 128 characters. Please enter a valid number and try again.");
         return generatePassword();
         }
-        console.log(passwordLength);
-        
+        console.log(charLimit);
     var upperConfirm = window.confirm("Do you want your password to contain uppercase characters?");
         console.log(upperConfirm);
     var lowerConfirm = window.confirm("Do you want your password to contain lowercase characters?");
@@ -26,21 +26,29 @@ function generatePassword() {
         console.log(specialConfirm);
 
     if(upperConfirm) {
-        choices = choices.concat(upperCase);
-        }
-
-    if(lowerConfirm) {
-        choices = choices.concat(lowerCase);
+        totalChoices = choices.concat(upperCase);
     }
-
+    
+    if(lowerConfirm) {
+        totalChoices = choices.concat(lowerCase);
+    }
+   
     if(numericConfirm) {
-        choices = choices.concat(numericValue);
+        totalChoices = choices.concat(numericValue);
     }
 
     if(specialConfirm) {
-        choices = choices.concat(specialCharacter);
+        totalChoices = choices.concat(specialCharacter);
     }
+    console.log("Here are the user input options", totalChoices)
+
+    // For Loop starts here
+    // array_password.push(totalset[Math.floor(Math.random() * totalset.length)]);
+    // For Loop ends
+
+    // password = array_password.join("");
 }
+
 
     // Thought process on concat conditions above: 
         // 1. Determine total password length from user input prompt. 
@@ -71,4 +79,3 @@ generateBtn.addEventListener("click", writePassword);
 // generatePassword();
 
 // test coding for commit purposes
-
