@@ -8,17 +8,22 @@ specialCharacter = ["+", "-", "&&", "||", "!", "(", ")", "{", "}", "[", "]", "^"
 // Will I run into issues with this being a string and the " and \ symbols? I tried to call them out correctly using the slash before inputting the symbol itself?
 
 function generatePassword() {
-    var passwordLength = window.prompt("Passwords can contain between 8 and 128 characters. Please determine the length of your password.");
+    var choices = []
+    var passwordLength = window.prompt("Passwords may contain between 8 and 128 characters. Please determine the length of your password.");
+        if(parseInt(passwordLength) > 128 || parseInt(passwordLength) < 8 || passwordLength === "" || passwordLength === null) {
+        window.alert("Password must contain a minimum of 8 characters and a maximum of 128 characters. Please enter a valid number and try again.");
+        return generatePassword();
+        }
         console.log(passwordLength);
-    var upperConfirm = window.confirm("Do you want uppercase characters in your password?");
+        
+    var upperConfirm = window.confirm("Do you want your password to contain uppercase characters?");
         console.log(upperConfirm);
-    var lowerConfirm = window.confirm("Do you want lowercase characters in your password?");
+    var lowerConfirm = window.confirm("Do you want your password to contain lowercase characters?");
         console.log(lowerConfirm);
     var numericConfirm = window.confirm("Do you want your password to contain numbers?");
         console.log(numericConfirm);
     var specialConfirm = window.confirm("Do you want your password to contain special characters?");
         console.log(specialConfirm);
-    
 
     if(upperConfirm) {
         choices = choices.concat(upperCase);
@@ -49,20 +54,21 @@ function generatePassword() {
 
 
 // Get references to the #generate element
-// var generateBtn = document.querySelector("#generate");
+var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
 
-//   passwordText.value = password;
+  passwordText.value = password;
 
-// }
+}
 
 // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword);
+
+// generatePassword();
 
 // test coding for commit purposes
 
-generatePassword();
