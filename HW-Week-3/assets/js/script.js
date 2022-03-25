@@ -8,8 +8,7 @@ specialCharacter = ["+", "-", "&&", "||", "!", "(", ")", "{", "}", "[", "]", "^"
 // Will I run into issues with this being a string and the " and \ symbols? I tried to call them out correctly using the slash before inputting the symbol itself?
 
 function generatePassword() {
-    var totalChoices = []
-    var choices = []
+    var arraryIndex = []
     var charLimit = window.prompt("Passwords may contain between 8 and 128 characters. Please determine the length of your password.");
         if(parseInt(charLimit) > 128 || parseInt(charLimit) < 8 || charLimit === "" || charLimit === null) {
         window.alert("Password must contain a minimum of 8 characters and a maximum of 128 characters. Please enter a valid number and try again.");
@@ -26,21 +25,26 @@ function generatePassword() {
         console.log(specialConfirm);
 
     if(upperConfirm) {
-        totalChoices = choices.concat(upperCase);
+        arraryIndex.push(upperCase);
     }
     
     if(lowerConfirm) {
-        totalChoices = choices.concat(lowerCase);
+        arraryIndex.push(lowerCase);
     }
    
     if(numericConfirm) {
-        totalChoices = choices.concat(numericValue);
+        arraryIndex.push(numericValue);
     }
 
     if(specialConfirm) {
-        totalChoices = choices.concat(specialCharacter);
+        arraryIndex.push(specialCharacter);
     }
-    console.log("Here are the user input options", totalChoices)
+    console.log("Here are the user input selections and outputs", arraryIndex)
+
+      var merge = [].concat.apply([], arrayIndex);
+      
+      console.log(merge);
+
 
     // For Loop starts here
     // array_password.push(totalset[Math.floor(Math.random() * totalset.length)]);
@@ -75,7 +79,5 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-// generatePassword();
 
 // test coding for commit purposes
