@@ -28,6 +28,8 @@ A website that offers the ability for the user to decide variable input selectio
 ## Website
 [Product of MNlegion](https://mnlegion.github.io/Password-Generator/)
 
+![Password Generator Screenshot](./assets/images/Screenshot%202022-03-27%20142536.png)
+
 ## GitHub
 [MNlegion Profile](https://github.com/MNlegion)
 
